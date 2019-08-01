@@ -480,13 +480,13 @@ GOBar <- function(data, display, order.by.zscore = T, title, zsc.col, label.size
 #' }
 #' @export
 
-GOCircle <- function(data, title, nsub, rad1, rad2, table.legend = T, zsc.col, lfc.col, label.size, label.fontface){
+GOCircle <- function(data, title, nsub, rad1, rad2, table.legend = TRUE, zsc.col, lfc.col, label.size, label.fontface){
   if( any( is.na(data) ) ){
     stop("The 'data' data.frame contains NA's. Please remove them before giving them as input to GOCircle.")
   }
   xmax <- y1<- zscore <- y2 <- ID <- logx <- logy2 <- logy <- logFC <- NULL
   if (missing(title)) title <- ''
-  if (missing(nsub)) nsub <- min( length(unique(data$category)), 10 )
+  if (missing(nsub)) nsub <- min( length(unique(data$term)), 10 )
   if (missing(rad1)) rad1 <- 2
   if (missing(rad2)) rad2 <- 3
   if (missing(zsc.col)) zsc.col <- c('red', 'white', 'blue')
